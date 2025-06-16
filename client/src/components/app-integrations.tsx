@@ -67,12 +67,7 @@ const integrations = [
   }
 ];
 
-const stats = [
-  { value: "50+", label: "Integrations", color: "text-[var(--electric-blue)]" },
-  { value: "10M+", label: "Tasks Automated", color: "text-[var(--neon-violet)]" },
-  { value: "99.9%", label: "Uptime", color: "text-[var(--neon-teal)]" },
-  { value: "4.9/5", label: "User Rating", color: "text-[var(--neon-green)]" }
-];
+
 
 export default function AppIntegrations() {
   const [activeView, setActiveView] = useState("apps");
@@ -161,33 +156,7 @@ export default function AppIntegrations() {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <motion.div 
-          className="grid md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          {stats.map((stat, index) => (
-            <motion.div 
-              key={stat.label}
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div 
-                className={`text-3xl font-bold mb-2 ${stat.color}`}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {stat.value}
-              </motion.div>
-              <div className="text-slate-400">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );
