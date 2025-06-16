@@ -65,8 +65,9 @@
   }
 
   body {
-    @apply font-inter antialiased bg-[var(--dark-bg)] text-foreground overflow-x-hidden;
+    @apply antialiased text-foreground overflow-x-hidden;
     font-family: 'Inter', sans-serif;
+    background-color: hsl(240, 6%, 4%);
   }
 }
 
@@ -78,57 +79,9 @@
   }
 
   .gradient-bg {
-    background: linear-gradient(-45deg, var(--dark-bg), var(--dark-navy), hsl(217, 32%, 17%), var(--dark-bg));
+    background: linear-gradient(-45deg, #0a0c1a, #1a1d3a, #2a2f47, #0a0c1a);
     background-size: 400% 400%;
     animation: gradient-wave 8s ease-in-out infinite;
-  }
-
-  .text-electric-blue {
-    color: var(--electric-blue);
-  }
-
-  .text-neon-violet {
-    color: var(--neon-violet);
-  }
-
-  .text-neon-teal {
-    color: var(--neon-teal);
-  }
-
-  .text-neon-green {
-    color: var(--neon-green);
-  }
-
-  .bg-electric-blue {
-    background-color: var(--electric-blue);
-  }
-
-  .bg-neon-violet {
-    background-color: var(--neon-violet);
-  }
-
-  .bg-neon-teal {
-    background-color: var(--neon-teal);
-  }
-
-  .bg-neon-green {
-    background-color: var(--neon-green);
-  }
-
-  .border-electric-blue {
-    border-color: var(--electric-blue);
-  }
-
-  .border-neon-violet {
-    border-color: var(--neon-violet);
-  }
-
-  .border-neon-teal {
-    border-color: var(--neon-teal);
-  }
-
-  .border-neon-green {
-    border-color: var(--neon-green);
   }
 }
 

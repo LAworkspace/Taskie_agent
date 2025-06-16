@@ -144,25 +144,18 @@ export default function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Button 
-            className="bg-gradient-to-r from-[var(--electric-blue)] to-[var(--neon-teal)] px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-[var(--electric-blue)]/25 transition-all transform hover:scale-105 glow-hover"
+            className="bg-gradient-to-r from-[hsl(193,100%,50%)] to-[hsl(173,80%,40%)] px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-[hsl(193,100%,50%)]/25 transition-all transform hover:scale-105"
             size="lg"
+            onClick={() => window.open('https://forms.gle/example', '_blank')}
           >
             <Rocket className="mr-2 w-5 h-5" />
             Start Automating
-          </Button>
-          <Button 
-            variant="outline"
-            className="glass-morphism px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all border border-white/20 bg-transparent"
-            size="lg"
-          >
-            <Play className="mr-2 w-5 h-5" />
-            Watch Demo
           </Button>
         </motion.div>
       </div>
