@@ -13,13 +13,19 @@ export default function WaitlistSection() {
 
   const submitEmail = useMutation({
     mutationFn: async (email: string) => {
-      const response = await apiRequest("/api/waitlist", {
+      const response = await fetch("/api/waitlist", {
         method: "POST",
         body: JSON.stringify({ email }),
         headers: {
           "Content-Type": "application/json",
         },
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to join waitlist");
+      }
+      
       return response.json();
     },
     onSuccess: () => {
@@ -116,17 +122,39 @@ export default function WaitlistSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="glass-morphism border-slate-600 bg-slate-800/50 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
                     required
+                    disabled={submitEmail.isPending}
                   />
                 </div>
                 <Button 
                   type="submit"
                   className="bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:scale-105 px-8"
                   size="lg"
+                  disabled={submitEmail.isPending}
                 >
-                  <Mail className="mr-2 w-5 h-5" />
-                  Join Waitlist
+                  {submitEmail.isPending ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Joining...
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="mr-2 w-5 h-5" />
+                      Join Waitlist
+                    </>
+                  )}
                 </Button>
               </div>
+              
+              {error && (
+                <motion.div 
+                  className="mt-4 p-3 glass-morphism border border-red-500/30 rounded-lg flex items-center gap-2 text-red-400"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-sm">{error}</span>
+                </motion.div>
+              )}
             </motion.form>
           ) : (
             <motion.div 
