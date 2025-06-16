@@ -42,8 +42,9 @@ export default function CTASection() {
           viewport={{ once: true }}
         >
           <Button 
-            className="bg-gradient-to-r from-[var(--electric-blue)] to-[var(--neon-violet)] px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-[var(--electric-blue)]/25 transition-all transform hover:scale-105"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:scale-105"
             size="lg"
+            onClick={() => window.open('https://forms.gle/example', '_blank')}
           >
             <Rocket className="mr-2 w-5 h-5" />
             Start Free Trial
@@ -53,6 +54,7 @@ export default function CTASection() {
             variant="outline"
             className="glass-morphism px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all border border-white/20 bg-transparent"
             size="lg"
+            onClick={() => window.open('https://forms.gle/example', '_blank')}
           >
             <Calendar className="mr-2 w-5 h-5" />
             Schedule Demo

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Bot } from "lucide-react";
-import { SiTwitter, SiLinkedin, SiGithub } from "react-icons/si";
+import { Twitter, Linkedin, Github } from "lucide-react";
 
 const footerLinks = {
   product: [
@@ -24,9 +24,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: SiTwitter, href: "#twitter", label: "Twitter" },
-  { icon: SiLinkedin, href: "#linkedin", label: "LinkedIn" },
-  { icon: SiGithub, href: "#github", label: "GitHub" }
+  { icon: Twitter, href: "#twitter", label: "Twitter" },
+  { icon: Linkedin, href: "#linkedin", label: "LinkedIn" },
+  { icon: Github, href: "#github", label: "GitHub" }
 ];
 
 export default function Footer() {

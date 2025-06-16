@@ -13,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <HowItWorks />
       <AppIntegrations />
+      <PricingSection />
       <CTASection />
       <Footer />
     </div>

@@ -47,7 +47,10 @@ export default function Navigation() {
             >
               Pricing
             </button>
-            <Button className="bg-gradient-to-r from-[var(--electric-blue)] to-[var(--neon-violet)] hover:shadow-lg hover:shadow-[var(--electric-blue)]/25 transition-all">
+            <Button 
+              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+              onClick={() => window.open('https://forms.gle/example', '_blank')}
+            >
               Get Started
             </Button>
           </div>
@@ -85,7 +88,10 @@ export default function Navigation() {
             >
               Pricing
             </button>
-            <Button className="w-full bg-gradient-to-r from-[var(--electric-blue)] to-[var(--neon-violet)]">
+            <Button 
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500"
+              onClick={() => window.open('https://forms.gle/example', '_blank')}
+            >
               Get Started
             </Button>
           </motion.div>
