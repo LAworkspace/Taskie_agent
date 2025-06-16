@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(193, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+
+  /* Custom Taskie Colors */
+  --dark-bg: hsl(240, 6%, 4%);
+  --dark-navy: hsl(222, 84%, 5%);
+  --electric-blue: hsl(193, 100%, 50%);
+  --neon-violet: hsl(258, 84%, 66%);
+  --neon-teal: hsl(173, 80%, 40%);
+  --neon-green: hsl(158, 85%, 38%);
+  --dark-card: hsla(217, 32%, 17%, 0.5);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(193, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-[var(--dark-bg)] text-foreground overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    background: rgba(30, 41, 59, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(-45deg, var(--dark-bg), var(--dark-navy), hsl(217, 32%, 17%), var(--dark-bg));
+    background-size: 400% 400%;
+    animation: gradient-wave 8s ease-in-out infinite;
+  }
+
+  .text-electric-blue {
+    color: var(--electric-blue);
+  }
+
+  .text-neon-violet {
+    color: var(--neon-violet);
+  }
+
+  .text-neon-teal {
+    color: var(--neon-teal);
+  }
+
+  .text-neon-green {
+    color: var(--neon-green);
+  }
+
+  .bg-electric-blue {
+    background-color: var(--electric-blue);
+  }
+
+  .bg-neon-violet {
+    background-color: var(--neon-violet);
+  }
+
+  .bg-neon-teal {
+    background-color: var(--neon-teal);
+  }
+
+  .bg-neon-green {
+    background-color: var(--neon-green);
+  }
+
+  .border-electric-blue {
+    border-color: var(--electric-blue);
+  }
+
+  .border-neon-violet {
+    border-color: var(--neon-violet);
+  }
+
+  .border-neon-teal {
+    border-color: var(--neon-teal);
+  }
+
+  .border-neon-green {
+    border-color: var(--neon-green);
+  }
+}
+
+@keyframes gradient-wave {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes orbit {
+  0% { 
+    transform: rotate(0deg) translateX(120px) rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg) translateX(120px) rotate(-360deg); 
+  }
+}
+
+@keyframes pulse-glow {
+  0% { 
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); 
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.8), 0 0 60px rgba(0, 212, 255, 0.4); 
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 10s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.animate-gradient-wave {
+  animation: gradient-wave 8s ease-in-out infinite;
+}
+
+.glow-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.orbit-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: orbit 10s linear infinite;
+}
+
+.orbit-item:nth-child(1) { 
+  animation-delay: 0s; 
+}
+
+.orbit-item:nth-child(2) { 
+  animation-delay: -2.5s; 
+}
+
+.orbit-item:nth-child(3) { 
+  animation-delay: -5s; 
+}
+
+.orbit-item:nth-child(4) { 
+  animation-delay: -7.5s; 
+}
