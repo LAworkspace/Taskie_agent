@@ -2,19 +2,40 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Users, Sparkles } from "lucide-react";
+import { Mail, Users, Sparkles, AlertCircle } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function WaitlistSection() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const submitEmail = useMutation({
+    mutationFn: async (email: string) => {
+      const response = await apiRequest("/api/waitlist", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      setIsSubmitted(true);
+      setEmail("");
+      setError("");
+    },
+    onError: (error: any) => {
+      setError(error.message || "Failed to join waitlist. Please try again.");
+    },
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      // Here you would typically send the email to your backend
-      console.log("Email submitted:", email);
-      setIsSubmitted(true);
-      setEmail("");
+      submitEmail.mutate(email);
     }
   };
 
