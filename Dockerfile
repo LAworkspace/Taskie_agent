@@ -13,8 +13,9 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build the application using explicit paths
+RUN ./node_modules/.bin/vite build
+RUN ./node_modules/.bin/esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
 
 # Remove dev dependencies after build
 RUN npm prune --production
